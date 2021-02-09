@@ -128,7 +128,7 @@ int bspatch_mem(uint8_t* oldfile_bin, int64_t oldfile_size, uint8_t* patchfile_b
 	uint8_t* p_decompressed_block[NUM_BLOCKS] = {NULL, NULL, NULL};
 	uint8_t* p_decompressed_block_end[NUM_BLOCKS] = {NULL, NULL, NULL};
 
-	for(int i = 0; i < NUM_BLOCKS; i++){
+	for(i = 0; i < NUM_BLOCKS; i++){
 		unsigned int decompressed_size = newsize * 4;
 		p_decompressed_block_original[i] = malloc(decompressed_size); // reserve enough memory
 
@@ -149,7 +149,7 @@ int bspatch_mem(uint8_t* oldfile_bin, int64_t oldfile_size, uint8_t* patchfile_b
 
 	} 
 	if(error){
-		for(int i = 0; i < NUM_BLOCKS; i++){
+		for(i = 0; i < NUM_BLOCKS; i++){
 			free(p_decompressed_block_original[i]);
 		}
 		return -1;
@@ -216,7 +216,7 @@ int bspatch_mem(uint8_t* oldfile_bin, int64_t oldfile_size, uint8_t* patchfile_b
 	};
 
 	/* Clean up the bzip2 reads */
-	for(int i = 0; i < NUM_BLOCKS; i++){
+	for(i = 0; i < NUM_BLOCKS; i++){
 		free(p_decompressed_block_original[i]);
 	}
 
